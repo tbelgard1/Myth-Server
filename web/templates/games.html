@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Myth Metaserver - Games{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 rounded-lg shadow">
+    <h1 class="text-2xl font-bold mb-6">Active Games</h1>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full table-auto">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="px-4 py-2 text-left">Room ID</th>
+                    <th class="px-4 py-2 text-left">Game ID</th>
+                    <th class="px-4 py-2 text-left">Name</th>
+                    <th class="px-4 py-2 text-left">Map</th>
+                    <th class="px-4 py-2 text-left">Description</th>
+                    <th class="px-4 py-2 text-center">Flags</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in games %}
+                <tr class="border-t hover:bg-gray-50">
+                    <td class="px-4 py-2">{{ game.room_id }}</td>
+                    <td class="px-4 py-2">{{ game.game_id }}</td>
+                    <td class="px-4 py-2">{{ game.game_name }}</td>
+                    <td class="px-4 py-2">{{ game.map_name }}</td>
+                    <td class="px-4 py-2">{{ game.description }}</td>
+                    <td class="px-4 py-2 text-center">{{ game.flags }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="px-4 py-2 text-center text-gray-500">No active games</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

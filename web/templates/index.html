@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Myth Metaserver - Dashboard{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-bold mb-4">Rooms</h2>
+        <p class="text-4xl font-bold text-blue-600">{{ room_count }}</p>
+        <p class="text-gray-600">Active Rooms</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-bold mb-4">Games</h2>
+        <p class="text-4xl font-bold text-green-600">{{ game_count }}</p>
+        <p class="text-gray-600">Active Games</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-bold mb-4">Uptime</h2>
+        <p class="text-4xl font-bold text-purple-600">{{ uptime }}</p>
+        <p class="text-gray-600">Hours</p>
+    </div>
+</div>
+
+<div class="mt-8">
+    <h2 class="text-2xl font-bold mb-4">Quick Links</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="/rooms" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-bold text-blue-600">View Rooms</h3>
+            <p class="text-gray-600">Manage and monitor game rooms</p>
+        </a>
+        <a href="/games" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-bold text-green-600">View Games</h3>
+            <p class="text-gray-600">Track active games and matches</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

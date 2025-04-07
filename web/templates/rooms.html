@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Myth Metaserver - Rooms{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 rounded-lg shadow">
+    <h1 class="text-2xl font-bold mb-6">Active Rooms</h1>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full table-auto">
+            <thead>
+                <tr class="bg-gray-100">
+                    <th class="px-4 py-2 text-left">ID</th>
+                    <th class="px-4 py-2 text-left">Name</th>
+                    <th class="px-4 py-2 text-left">Description</th>
+                    <th class="px-4 py-2 text-center">Players</th>
+                    <th class="px-4 py-2 text-center">Max Players</th>
+                    <th class="px-4 py-2 text-center">Flags</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for room in rooms %}
+                <tr class="border-t hover:bg-gray-50">
+                    <td class="px-4 py-2">{{ room.room_id }}</td>
+                    <td class="px-4 py-2">{{ room.name }}</td>
+                    <td class="px-4 py-2">{{ room.description }}</td>
+                    <td class="px-4 py-2 text-center">{{ room.player_count }}</td>
+                    <td class="px-4 py-2 text-center">{{ room.max_players }}</td>
+                    <td class="px-4 py-2 text-center">{{ room.flags }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="px-4 py-2 text-center text-gray-500">No active rooms</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

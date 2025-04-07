@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Myth Metaserver - Statistics{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-bold mb-4">Room Stats</h2>
+        <p class="text-4xl font-bold text-blue-600">{{ stats.rooms }}</p>
+        <p class="text-gray-600">Active Rooms</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-bold mb-4">Game Stats</h2>
+        <p class="text-4xl font-bold text-green-600">{{ stats.games }}</p>
+        <p class="text-gray-600">Active Games</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-bold mb-4">Player Stats</h2>
+        <p class="text-4xl font-bold text-purple-600">{{ stats.players }}</p>
+        <p class="text-gray-600">Online Players</p>
+    </div>
+</div>
+
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-bold mb-4">System Status</h2>
+        <div class="space-y-2">
+            <div class="flex justify-between">
+                <span class="text-gray-600">CPU Usage</span>
+                <span class="font-bold">0%</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-gray-600">Memory Usage</span>
+                <span class="font-bold">0 MB</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-gray-600">Network I/O</span>
+                <span class="font-bold">0 KB/s</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-bold mb-4">Server Status</h2>
+        <div class="space-y-2">
+            <div class="flex justify-between">
+                <span class="text-gray-600">Game Search Service</span>
+                <span class="text-green-600 font-bold">Running</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-gray-600">Room Service</span>
+                <span class="text-green-600 font-bold">Running</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-gray-600">Web Service</span>
+                <span class="text-green-600 font-bold">Running</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
