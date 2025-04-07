@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redemption-net"
+version = "0.1.0"
+description = "Myth metaserver implementation"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+dependencies = [
+    "flask>=2.0.0",
+    "flask-login>=0.5.0",
+    "python-dotenv>=0.19.0",
+    "gunicorn>=20.1.0",
+    "black>=21.12b0",
+    "flake8>=4.0.0",
+    "mypy>=0.910",
+    "pytest>=6.2.5",
+    "pytest-cov>=3.0.0"
+]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+dev = [
+    "black>=21.12b0",
+    "flake8>=4.0.0",
+    "mypy>=0.910",
+    "pytest>=6.2.5",
+    "pytest-cov>=3.0.0"
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203"]
+exclude = [".git", "__pycache__", "build", "dist"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "--cov=core --cov-report=term-missing --cov-report=html --asyncio-mode=auto --verbose"
+log_cli = true
+log_cli_level = "INFO"
+markers = [
+    "unit: mark a test as a unit test",
+    "integration: mark a test as an integration test",
+    "e2e: mark a test as an end-to-end test",
+    "slow: mark test as slow (skipped by default)"
+]
